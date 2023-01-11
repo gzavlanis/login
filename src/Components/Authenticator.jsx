@@ -4,6 +4,8 @@ import Joi from "joi";
 import toastr from "toastr";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(props){
     const [user, setUser] = useState({
@@ -25,6 +27,8 @@ export default function Login(props){
         setUser(userData);
     };
 
+    const navigate = useNavigate();
+
     const validateForm = (event) => {
         event.preventDefault();
         const username = document.getElementById("username");
@@ -38,10 +42,13 @@ export default function Login(props){
                 password: password.value,
             }).then((response) => {
                 console.log(response);
-                toastr.success('Login was successful.', 'Success!', {closeButton: true, positionClass: 'toast-top-right'});
+                toastr.success('Login was successful', 'Success!', {closeButton: true, positionClass: 'toast-top-right'});
+                localStorage.setItem('token', response.data.token);
+                navigate('/table');
             }).catch((error) => {
                 console.log(error);
                 toastr.error('Wrong username and/or password.', 'Error!', {closeButton: true, positionClass: 'toast-top-right'});
+                navigate('/login');
             });
         } else {
             const errorData = {};
@@ -72,7 +79,9 @@ export default function Login(props){
                         <Input className= "form-control" type= "password" name= "password" id= "password" placeholder= "Enter password" 
                             value = {user.password} onChange = {handleSave}/>
                     </FormGroup>
-                    <Button type= "button" className= "mt-2 btn btn-success shadow-lg mx-2" onClick= {validateForm}>Sign in</Button>
+                    <Button type= "button" className= "mt-2 btn btn-success shadow-lg mx-2" onClick= {validateForm}>
+                        <FaSignInAlt size= {18}/> Sign in
+                    </Button>
                 </Form>
                 <div className= "pt-3 text-center">
                     <span title= "Reset password">
