@@ -4,6 +4,7 @@ import axios from "axios";
 import toastr from "toastr";
 import { NavLink } from "react-router-dom";
 import { FaSignOutAlt, FaEdit } from "react-icons/fa";
+import EditModal from "./EditModal";
 
 export default function DataTable() {
     const [posts, setPosts] = useState([]);
@@ -24,7 +25,11 @@ export default function DataTable() {
             console.log(error);
             toastr.error('Error in loading data. See console logs.', 'Fail!', {closeButton: true, positionClass: 'toast-top-right'});
         });
-    }, []);
+    }, [token]);
+
+    const [show, setShow] = useState(false);
+    const toggleModal = () => setShow(true);
+    const close = () => setShow(false);
 
     const DisplayData = posts.map(
         (info) => {
@@ -33,17 +38,18 @@ export default function DataTable() {
                     <td style= {{widyj: "20%"}}>{info.id}</td>
                     <td style= {{width: "75%"}}>{info.name}</td>
                     <td style= {{width: "5%"}}>
-                        <Button outline color= "secondary" type= "button" title= "Edit" className= "shadow">
+                        <Button onClick= {toggleModal} outline color= "secondary" type= "button" title= "Edit" className= "shadow">
                             <FaEdit size= {18}/>
                         </Button>
                     </td>
                 </tr>
             );
         }
-    ); 
+    );
 
     return(
         <div style = {{backgroundColor: "lightgrey"}} className= "py-5">
+            <EditModal isOpen = {show} isClose = {close} toggle = {toggleModal}/>
             <Container className= "py-4 bg-white rounded shadow-lg">
                 <h4 className= "text-center">Sports</h4>
                 <Table striped size= "md">
