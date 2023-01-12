@@ -63,7 +63,7 @@ export default function DataTable() {
                         {DisplayData}
                     </tbody>
                 </Table>
-                <NavLink to= "/login" className= "btn btn-danger shadow">
+                <NavLink to= "/" className= "btn btn-danger shadow">
                     <FaSignOutAlt size= {18}/> Logout
                 </NavLink>
             </Container>
