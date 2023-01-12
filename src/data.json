@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Soccer"
+    },
+    {
+        "id": 6,
+        "name": "Table Tennis"
+    },
+    {
+        "id": 2,
+        "name": "Basketball"
+    },
+    {
+        "id": 3,
+        "name": "Tennis"
+    },
+    {
+        "id": 5,
+        "name": "Ice Hockey"
+    },
+    {
+        "id": 32,
+        "name": "Greyhounds"
+    },
+    {
+        "id": 7,
+        "name": "Handball"
+    },
+    {
+        "id": 8,
+        "name": "Badminton"
+    },
+    {
+        "id": 11,
+        "name": "Beach Volleyball"
+    },
+    {
+        "id": 4,
+        "name": "Volleyball"
+    },
+    {
+        "id": 30,
+        "name": "Bowls"
+    },
+    {
+        "id": 12,
+        "name": "American Football"
+    },
+    {
+        "id": 21,
+        "name": "Counter Strike"
+    },
+    {
+        "id": 9,
+        "name": "Baseball"
+    },
+    {
+        "id": 13,
+        "name": "Water Polo"
+    },
+    {
+        "id": 17,
+        "name": "Darts"
+    },
+    {
+        "id": 24,
+        "name": "Dota 2"
+    },
+    {
+        "id": 23,
+        "name": "League Of Legends"
+    },
+    {
+        "id": 19,
+        "name": "Cricket"
+    },
+    {
+        "id": 22,
+        "name": "Valorant"
+    },
+    {
+        "id": 10,
+        "name": "Futsal"
+    },
+    {
+        "id": 33,
+        "name": "Trotting"
+    },
+    {
+        "id": 36,
+        "name": "Golf"
+    },
+    {
+        "id": 16,
+        "name": "Snooker"
+    },
+    {
+        "id": 18,
+        "name": "Hockey"
+    },
+    {
+        "id": 14,
+        "name": "Boxing"
+    },
+    {
+        "id": 31,
+        "name": "Horse Racing"
+    },
+    {
+        "id": 20,
+        "name": "Archery"
+    },
+    {
+        "id": 28,
+        "name": "Archery Shooting"
+    },
+    {
+        "id": 29,
+        "name": "Pistol Shooting"
+    }
+]
