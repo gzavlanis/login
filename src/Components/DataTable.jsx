@@ -8,14 +8,17 @@ import data from "../data.json";
 export default function DataTable() {
     const [show, setShow] = useState(false);
     const [sportName, setSportName] = useState("");
-    const [selectedItem, setSelectedItem] = useState({});
+    const [selectedItem, setSelectedItem] = useState({
+        id: "", name: ""
+    });
+
     const toggleModal = () => setShow(true);
     const close = () => setShow(false);
     
     const handleEditClick = (e) => {
         toggleModal();
         setSelectedItem(data.find((sport) => sport.id === e.target.id));
-        console.log(selectedItem.name); //undefined?
+        console.log(selectedItem); //empty?
         setSportName(selectedItem.name);
     };
 
