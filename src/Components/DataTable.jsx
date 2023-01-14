@@ -8,23 +8,23 @@ import data from "../data.json";
 export default function DataTable() {
     const [show, setShow] = useState(false);
     const [sportName, setSportName] = useState("");
+    const [selectedItem, setSelectedItem] = useState({});
     const toggleModal = () => setShow(true);
     const close = () => setShow(false);
-
+    
     const handleEditClick = (e) => {
         toggleModal();
-        data.map((sport) => {
-            if (sport.id === e.target.id){
-                setSportName(sport.name);
-            }
-        });
-    }
+        setSelectedItem(data.find((sport) => sport.id === e.target.id));
+        console.log(selectedItem.name); //undefined?
+        setSportName(selectedItem.name);
+    };
+
     return(
         <div style = {{backgroundColor: "lightgrey"}} className= "py-5">
             <EditModal isOpen = {show} toggle = {toggleModal} isClose = {close} sport = {sportName}/>
             <Container className= "py-4 bg-white rounded shadow-lg">
                 <h4 className= "text-center">Sports</h4>
-                <Table striped size= "md">
+                <Table striped borderless size= "md">
                     <thead>
                         <tr>
                             <th>Id</th>

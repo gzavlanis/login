@@ -4,6 +4,9 @@ import { FaTimes } from "react-icons/fa";
 
 export default function EditModal(props){
     const [name, setName] = useState("");
+    const handleChange = (e) => {
+        setName(e.target.value);
+    };
 
     return(
         <Container fluid>
@@ -13,8 +16,7 @@ export default function EditModal(props){
                     <Form>
                         <FormGroup className= "mb-2 mx-sm-2 mb-sm-2">
                             <Label for= "name" className= "mr-sm-2">Name</Label>
-                            <Input className= "form-control" type= "text" name= "name" id= "name" 
-                                value = {props.sport} onChange = ""/>
+                            <Input type= "text" name= "name" id= "name" value = {props.sport} onChange = {handleChange}/>
                         </FormGroup>
                     </Form>
                 </ModalBody>
