@@ -11,7 +11,6 @@ export default function DataTable() {
     const [id, setId] = useState(0);
     const toggleModal = () => setShow(true);
     const close = () => setShow(false);
-    const [sort, setSort] = useState(0);
     
     const handleEditClick = (e) => {
         let selectedItem = data.find(sport => sport.id == e.target.id);
@@ -26,14 +25,7 @@ export default function DataTable() {
         item.name = name;
     };
 
-    const sortFunction = () => {
-        data.sort((a, b) => {
-            if (a.id > b.id) return 1;
-            if (a.id < b.id) return -1;
-            return 0;
-        });
-        setSort(sort + 1);
-    };
+    const sort = data.sort((a, b) => (a.id > b.id ? 1 : -1));
 
     return(
         <div style = {{backgroundColor: "lightgrey"}} className= "py-5">
@@ -44,16 +36,13 @@ export default function DataTable() {
                     <thead>
                         <tr>
                             <th>
-                                id&nbsp;&nbsp;
-                                <Button size = "sm" outline color = "secondary" className= "shadow py-1" type= "button" title= "Sort by ID" onClick= {sortFunction}>
-                                    <i className= "fa fa-sort fa-lg"></i>
-                                </Button>
+                                id
                             </th>
                             <th>Name</th>
                         </tr>
                     </thead>
                     <tbody>
-                        { data.map(sport => (
+                        { sort.map(sport => (
                             <tr key = {sport.id}>
                                 <td>{sport.id}</td>
                                 <td>{sport.name}</td>
