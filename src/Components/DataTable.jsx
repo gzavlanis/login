@@ -8,22 +8,22 @@ import data from "../data.json";
 export default function DataTable() {
     const [show, setShow] = useState(false);
     const [sportName, setSportName] = useState("");
+    const [id, setId] = useState(0);
     const toggleModal = () => setShow(true);
     const close = () => setShow(false);
     const [sort, setSort] = useState(0);
-    const [sport, setSport] = useState({
-        id: '', name: ''
-    });
     
     const handleEditClick = (e) => {
         let selectedItem = data.find(sport => sport.id == e.target.id);
         setSportName(selectedItem.name);
+        setId(selectedItem.id);
         toggleModal();
     };
     
     const showName = (name) => {
         console.log(name);
-        data[7].name = name;
+        let item = data.find(sport => sport.id == id);
+        item.name = name;
     };
 
     const sortFunction = () => {
@@ -58,7 +58,7 @@ export default function DataTable() {
                                 <td>{sport.id}</td>
                                 <td>{sport.name}</td>
                                 <td style= {{width: "5%"}}>
-                                    <Button onClick= {handleEditClick} outline color= "secondary" type= "button" title= "Edit" className= "shadow px-2 py-2" id = {sport.id}>
+                                    <Button onClick= {handleEditClick} outline color= "secondary" type= "button" title= "Edit" className= "shadow px-2 py-1" id = {sport.id}>
                                         <i className= "fa fa-edit fa-lg" id = {sport.id}></i>
                                     </Button>
                                 </td>

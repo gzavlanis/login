@@ -21,7 +21,7 @@ export default function EditModal({sport, isOpen, isClose, showName}){
                     <Form>
                         <FormGroup className= "mb-2 mx-sm-2 mb-sm-2">
                             <Label for= "name" className= "mr-sm-2">Name</Label>
-                            <Input type= "text" name= "name" id= "name" value = {name} onChange = {handleChange}/>
+                            <Input type= "text" name= "name" id = "name" value = {name} onChange = {handleChange}/>
                         </FormGroup>
                     </Form>
                 </ModalBody>
