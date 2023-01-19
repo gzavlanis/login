@@ -66,7 +66,7 @@ export default function Login(props){
 
     return(
         <div style = {{backgroundColor: "lightgrey", height: "100vh"}} className= "py-5">
-            <Container className= "py-4 bg-white rounded shadow-lg">
+            <Container className= "my-5 py-4 px-4 bg-white rounded shadow-lg" style = {{width: '40vw'}}>
                 <h3 className= "text-center">Sign in</h3>
                 <Form>
                     <FormGroup className= "mb-2 mx-sm-2 mb-sm-2">
